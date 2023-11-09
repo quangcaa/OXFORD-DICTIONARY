@@ -90,11 +90,12 @@ public class message {
         grid.add(definition, 1, 1);
 
         Node submitButton = dialog.getDialogPane().lookupButton(buttonTypeSubmit);
-        submitButton.setDisable(true);
+        submitButton.setDisable(target.getText().trim().isEmpty());
 
-        target.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+        target.textProperty().addListener((observableValue, oldValue, newValue) -> {
             submitButton.setDisable(newValue.trim().isEmpty());
-        }));
+        });
+
         dialog.getDialogPane().setContent(grid);
 
         dialog.setResultConverter(dialogButton -> {

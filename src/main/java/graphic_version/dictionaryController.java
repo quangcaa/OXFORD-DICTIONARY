@@ -187,6 +187,12 @@ public class dictionaryController implements Initializable {
         if (word != null && !word.isEmpty()) {
             if (message.deleteWord()) {
                 trie.delete(word);
+
+                allWords.remove(word);
+                filteredWords.remove(word);
+                output.setItems(filteredWords);
+
+
                 System.out.println("Word: " + word + " has been deleted.");
                 search.setText("");
                 definition.getEngine().loadContent("");

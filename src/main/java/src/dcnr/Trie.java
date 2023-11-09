@@ -195,6 +195,7 @@ public class Trie {
             if (node.isEnd() == 1) {
                 node.setEnd(0);
                 node.setWord("");
+                node.setMeaning("");
             }
 
             return isEmpty(node);

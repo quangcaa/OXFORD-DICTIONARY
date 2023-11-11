@@ -108,18 +108,17 @@ public class dictionaryController implements Initializable {
         String def = "";
         if (selectWord != null) {
             search.setText(selectWord);
+            def = trie.getDefinition(selectWord);
+            definition.getEngine().loadContent(def);// Load HTML content into the WebView
+        }
+        else {
+            System.out.println("No words selected.");
         }
 
+// database display method
 //        if (selectWord != null) {
 //            def = database.getDefinition(selectWord);
 //        }
-
-        def = trie.getDefinition(selectWord);
-
-        if (!def.isEmpty()) {
-            definition.getEngine().loadContent(def); // Load HTML content into the WebView
-        }
-
     }
 
     String nameFrom;
@@ -146,6 +145,8 @@ public class dictionaryController implements Initializable {
                 System.out.println("This word is already in the dictionary.");
             } else {
                 Trie.insert(newWord.getKey(), newWord.getValue());
+                search.setText(newWord.getKey());
+                definition.getEngine().loadContent(newWord.getValue());
                 System.out.println("Word has been added to the dictionary.");
             }
         } else if (!newWord.getKey().equals("") || !newWord.getValue().equals("")) {
@@ -167,6 +168,8 @@ public class dictionaryController implements Initializable {
 
             if (!newWord.getKey().equals("") && !newWord.getValue().equals("")) {
                 trie.fixWord(oldWord, newWord.getKey(), newWord.getValue());
+                search.setText(newWord.getKey());
+                definition.getEngine().loadContent(newWord.getValue());
                 System.out.println("Word has been changed in the dictionary.");
             } else if (!newWord.getKey().equals("") || !newWord.getValue().equals("")) {
                 message.warning("Warning", "", "Please fill in all fields.");
@@ -200,7 +203,8 @@ public class dictionaryController implements Initializable {
                 System.out.println("Cancel.");
             }
         } else {
-            System.out.println("Word is not found in dictionary.");
+            message.warning("Warning", "", "No words selected.");
+            System.out.println("No words selected.");
         }
     }
 }

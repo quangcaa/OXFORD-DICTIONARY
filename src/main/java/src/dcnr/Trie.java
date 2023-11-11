@@ -226,6 +226,10 @@ public class Trie {
     }
 
     public String getDefinition(String word) {
+        if (word == null) {
+            return null; // Word is null, return null
+        }
+
         TrieNode current = root;
 
         for (char c : word.toCharArray()) {

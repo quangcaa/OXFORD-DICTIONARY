@@ -25,7 +25,7 @@
 8. Run Project in DictionaryApplication
 
 ## Set up database
-1. Open data.sql in database direction
+1. Open final.sql in database direction
 2. Copy all data 
 3. Open Mysql 
 4. Create database named dictionary and Set as default schema

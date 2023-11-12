@@ -103,6 +103,17 @@ public class dictionaryController implements Initializable {
     }
 
     @FXML
+    public void find(ActionEvent event) {
+        String def = trie.getDefinition(search.getText());
+        if(def != null) {
+            definition.getEngine().loadContent(def);
+        }
+        else {
+            System.out.println("Word not found.");
+        }
+    }
+
+    @FXML
     public void displayDefinition(MouseEvent e) throws SQLException {
         String selectWord = output.getSelectionModel().getSelectedItem();
         String def = "";

@@ -15,17 +15,21 @@
    <children>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="750.0" prefWidth="320.0" style="-fx-background-color: lightgrey;">
               <children>
-                  <TextField fx:id="search" layoutX="52.0" layoutY="6.0" onAction="#search" prefHeight="44.0" prefWidth="245.0" promptText="Tra từ Anh Việt" AnchorPane.rightAnchor="0.0">
+                  <TextField fx:id="search" layoutX="16.0" layoutY="6.0" onAction="#search" prefHeight="44.0" prefWidth="236.0" promptText="Tra từ Anh Việt" AnchorPane.rightAnchor="49.0">
                       <font>
                           <Font name="Arial" size="20.0" />
                       </font>
                   </TextField>
                   <ListView fx:id="output" fixedCellSize="40.0" layoutX="15.0" layoutY="61.0" onMouseClicked="#displayDefinition" prefHeight="669.0" prefWidth="260.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="61.0" />
-                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="16.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="16.0">
-                      <image>
-                          <Image url="@../images/search_sb.png" />
-                      </image>
-                  </ImageView>
+            <Button layoutX="252.0" layoutY="6.0" mnemonicParsing="false" onAction="#find" prefHeight="44.0" prefWidth="44.0">
+               <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/search_sb.png" />
+                            </image>
+                        </ImageView>
+               </graphic>
+            </Button>
               </children>
           </AnchorPane>
           <AnchorPane fx:id="acp" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="618.0" style="-fx-background-color: lightgrey;">

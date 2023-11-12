@@ -1,0 +1,13 @@
+.root {
+    -fx-font-size: 14pt;
+}
+
+.option {
+    -fx-background-image: blue;
+}
+
+/* Add responsive styling here if needed */
+/* For example, you can use media queries for different screen sizes */
+@media all and (max-width: 600px) {
+    /* Add responsive styles here */
+}

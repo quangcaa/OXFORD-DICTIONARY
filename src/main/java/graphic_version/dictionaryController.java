@@ -1,7 +1,7 @@
 package graphic_version;
 
 import cmd_version.VoiceRSS;
-import src.dcnr.DataBase;
+import src.dcnr.Database;
 import javafx.collections.FXCollections;
 import src.dcnr.Database;
 import javafx.collections.ObservableList;
@@ -97,7 +97,7 @@ public class dictionaryController {
             search.setText(selectWord);
         }
         if (selectWord != null) {
-            def = DataBase.getDefinition(selectWord);
+            def = Database.getDefinition(selectWord);
         }
 
         if (!def.isEmpty()) {

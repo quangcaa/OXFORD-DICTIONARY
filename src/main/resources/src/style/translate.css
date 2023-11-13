@@ -1,0 +1,82 @@
+.second-color {
+    -fx-background-color: #90e88a;
+    -fx-font-size: 12;
+
+}
+
+.text-area {
+    -fx-background-color: #c1d5c1;
+
+}
+
+.button-lang {
+    -fx-background-color: #d7d1d1;
+    -fx-min-width: 90;
+    -fx-padding: 5;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+.button-lang.active {
+    -fx-background-color: #a0a9e7;
+    -fx-text-fill: #555c5d;
+}
+
+.button-speak {
+    -fx-background-image: url('../media/normal/speak.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 25;
+    -fx-background-color: transparent;
+    -fx-pref-width: 35;
+    -fx-pref-height: 35;
+}
+
+.button-speak:hover {
+    -fx-background-image: url('../media/hover/speak.png');
+    -fx-background-size: 25;
+    -fx-background-color: none;
+    -fx-cursor: default;
+}
+
+.button-double-arrow {
+    -fx-background-image: url('../media/normal/double-arrow.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: none;
+    -fx-background-size: 25;
+    -fx-pref-width: 60;
+    -fx-pref-height: 40;
+}
+
+.button-double-arrow:hover {
+    -fx-background-color: none;
+    -fx-cursor: default;
+}
+
+.button-translate-submit {
+    -fx-graphic: url('../media/normal/translate-submit.png');
+    -fx-background-color: #6363f3;
+    -fx-border-radius: 3;
+    -fx-padding: 5;
+    -fx-pref-width: 120;
+    -fx-pref-height: 30;
+
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.button-translate-submit:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #05059d;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-font-size: 15;
+}
+
+
+
+

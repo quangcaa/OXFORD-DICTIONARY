@@ -1,7 +1,11 @@
 package graphic_version;
 
 import cmd_version.VoiceRSS;
-import src.dcnr.DataBase;
+import javafx.fxml.Initializable;
+import javafx.util.Pair;
+import src.dcnr.Database;
+import src.dcnr.Trie;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,14 +15,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
-import src.dcnr.Trie;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class dictionaryController {
+public class dictionaryController implements Initializable {
     @FXML
     private TextField search;
     @FXML
@@ -27,11 +32,16 @@ public class dictionaryController {
     private WebView definition;
     @FXML
     private Button speak;
+    @FXML
+    private Button addButton;
+    @FXML
+    private Button fixButton;
+    @FXML
+    private Button deleteButton;
     private ObservableList<String> filteredWords;
     private ObservableList<String> allWords;
     private Database database = new Database();
     private Trie trie = new Trie();
-
 
     public dictionaryController() throws IOException, SQLException {
         filteredWords = FXCollections.observableArrayList();
@@ -39,8 +49,8 @@ public class dictionaryController {
         allWords = FXCollections.observableArrayList(word);
     }
 
-    @FXML
-    public void initialize() throws SQLException {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         // custom listview
         Callback<ListView<String>, ListCell<String>> cellFactory = param -> new ListCell<String>() {
             @Override
@@ -66,12 +76,16 @@ public class dictionaryController {
             if (prefix.isEmpty()) {
                 filteredWords.addAll(allWords);  // If the prefix is empty, show all words
             } else {
-                List<String> words = trie.findWordsWithPrefix(prefix); // Find words with the given prefix using the Trie
-                filteredWords.addAll(words);
+                try {
+                    List<String> words = trie.findWordsWithPrefix(prefix); // Find words with the given prefix using the Trie
+                    filteredWords.addAll(words);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-
         });
     }
+
 
     @FXML
     public void search(ActionEvent e) {
@@ -89,19 +103,33 @@ public class dictionaryController {
     }
 
     @FXML
+    public void find(ActionEvent event) {
+        String def = trie.getDefinition(search.getText());
+        if(def != null) {
+            definition.getEngine().loadContent(def);
+        }
+        else {
+            System.out.println("Word not found.");
+        }
+    }
+
+    @FXML
     public void displayDefinition(MouseEvent e) throws SQLException {
         String selectWord = output.getSelectionModel().getSelectedItem();
         String def = "";
         if (selectWord != null) {
             search.setText(selectWord);
+            def = trie.getDefinition(selectWord);
+            definition.getEngine().loadContent(def);// Load HTML content into the WebView
         }
-        if (selectWord != null) {
-            def = DataBase.getDefinition(selectWord);
+        else {
+            System.out.println("No words selected.");
         }
 
-        if (!def.isEmpty()) {
-            definition.getEngine().loadContent(def); // Load HTML content into the WebView
-        }
+// database display method
+//        if (selectWord != null) {
+//            def = database.getDefinition(selectWord);
+//        }
     }
 
     String nameFrom;
@@ -115,6 +143,79 @@ public class dictionaryController {
         VoiceRSS.language = speakFrom;
         if (!Objects.equals(search.getText(), "")) {
             VoiceRSS.speakWord(search.getText());
+        }
+    }
+
+    @FXML
+    public void addWord(ActionEvent event) {
+        Pair<String, String> newWord = message.addWord();
+
+        if (!newWord.getKey().equals("") && !newWord.getValue().equals("")) {
+            if (trie.search(newWord.getKey())) {
+                message.warning("Warning", "", "This word is already in the dictionary.");
+                System.out.println("This word is already in the dictionary.");
+            } else {
+                Trie.insert(newWord.getKey(), newWord.getValue());
+                search.setText(newWord.getKey());
+                definition.getEngine().loadContent(newWord.getValue());
+                System.out.println("Word has been added to the dictionary.");
+            }
+        } else if (!newWord.getKey().equals("") || !newWord.getValue().equals("")) {
+            message.warning("Warning", "", "Please fill in all fields.");
+            System.out.println("Please fill in all fields.");
+        } else {
+            System.out.println("Cancel.");
+        }
+    }
+
+    @FXML
+    public void fixWord(ActionEvent event) {
+        String oldWord = search.getText();
+        String oldMeaning;
+        if (oldWord != null && !oldWord.isEmpty()) {
+            oldMeaning = trie.getDefinition(oldWord);
+
+            Pair<String, String> newWord = message.fixWord(oldWord, oldMeaning);
+
+            if (!newWord.getKey().equals("") && !newWord.getValue().equals("")) {
+                trie.fixWord(oldWord, newWord.getKey(), newWord.getValue());
+                search.setText(newWord.getKey());
+                definition.getEngine().loadContent(newWord.getValue());
+                System.out.println("Word has been changed in the dictionary.");
+            } else if (!newWord.getKey().equals("") || !newWord.getValue().equals("")) {
+                message.warning("Warning", "", "Please fill in all fields.");
+                System.out.println("Please fill in all fields.");
+            } else {
+                System.out.println("Cancel.");
+            }
+        } else {
+            message.warning("Warning", "", "No words selected");
+            System.out.println("No words selected.");
+        }
+
+    }
+
+    @FXML
+    public void deleteWord(ActionEvent event) {
+        String word = search.getText();
+        if (word != null && !word.isEmpty()) {
+            if (message.deleteWord()) {
+                trie.delete(word);
+
+                allWords.remove(word);
+                filteredWords.remove(word);
+                output.setItems(filteredWords);
+
+
+                System.out.println("Word: " + word + " has been deleted.");
+                search.setText("");
+                definition.getEngine().loadContent("");
+            } else {
+                System.out.println("Cancel.");
+            }
+        } else {
+            message.warning("Warning", "", "No words selected.");
+            System.out.println("No words selected.");
         }
     }
 }

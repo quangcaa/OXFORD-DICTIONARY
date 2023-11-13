@@ -1,9 +1,9 @@
 package graphic_version;
 
 import cmd_version.VoiceRSS;
+import javafx.util.Pair;
 import src.dcnr.Database;
 import javafx.collections.FXCollections;
-import src.dcnr.Database;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -97,7 +97,7 @@ public class dictionaryController {
             search.setText(selectWord);
         }
         if (selectWord != null) {
-            def = Database.getDefinition(selectWord);
+            def = database.getDefinition(selectWord);
         }
 
         if (!def.isEmpty()) {
@@ -119,6 +119,77 @@ public class dictionaryController {
         }
     }
 
+    @FXML
+    public void addWord(ActionEvent event) {
+        Pair<String, String> newWord = message.addWord();
 
+        if (!newWord.getKey().equals("") && !newWord.getValue().equals("")) {
+            if (trie.search(newWord.getKey())) {
+                message.warning("Warning", "", "This word is already in the dictionary.");
+                System.out.println("This word is already in the dictionary.");
+            } else {
+                Trie.insert(newWord.getKey(), newWord.getValue());
+                search.setText(newWord.getKey());
+                definition.getEngine().loadContent(newWord.getValue());
+                System.out.println("Word has been added to the dictionary.");
+            }
+        } else if (!newWord.getKey().equals("") || !newWord.getValue().equals("")) {
+            message.warning("Warning", "", "Please fill in all fields.");
+            System.out.println("Please fill in all fields.");
+        } else {
+            System.out.println("Cancel.");
+        }
+    }
+
+    @FXML
+    public void fixWord(ActionEvent event) {
+        String oldWord = search.getText();
+        String oldMeaning;
+        if (oldWord != null && !oldWord.isEmpty()) {
+            oldMeaning = trie.getDefinition(oldWord);
+
+            Pair<String, String> newWord = message.fixWord(oldWord, oldMeaning);
+
+            if (!newWord.getKey().equals("") && !newWord.getValue().equals("")) {
+                trie.fixWord(oldWord, newWord.getKey(), newWord.getValue());
+                search.setText(newWord.getKey());
+                definition.getEngine().loadContent(newWord.getValue());
+                System.out.println("Word has been changed in the dictionary.");
+            } else if (!newWord.getKey().equals("") || !newWord.getValue().equals("")) {
+                message.warning("Warning", "", "Please fill in all fields.");
+                System.out.println("Please fill in all fields.");
+            } else {
+                System.out.println("Cancel.");
+            }
+        } else {
+            message.warning("Warning", "", "No words selected");
+            System.out.println("No words selected.");
+        }
+
+    }
+
+    @FXML
+    public void deleteWord(ActionEvent event) {
+        String word = search.getText();
+        if (word != null && !word.isEmpty()) {
+            if (message.deleteWord()) {
+                trie.delete(word);
+
+                allWords.remove(word);
+                filteredWords.remove(word);
+                output.setItems(filteredWords);
+
+
+                System.out.println("Word: " + word + " has been deleted.");
+                search.setText("");
+                definition.getEngine().loadContent("");
+            } else {
+                System.out.println("Cancel.");
+            }
+        } else {
+            message.warning("Warning", "", "No words selected.");
+            System.out.println("No words selected.");
+        }
+    }
 
 }

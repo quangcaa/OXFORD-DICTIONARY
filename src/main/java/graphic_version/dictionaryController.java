@@ -1,7 +1,6 @@
 package graphic_version;
 
 import cmd_version.VoiceRSS;
-import javafx.util.Pair;
 import src.dcnr.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

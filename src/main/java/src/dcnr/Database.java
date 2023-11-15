@@ -8,9 +8,9 @@ public class Database {
     private static PreparedStatement preparedStatement = null;
     private static ResultSet resultSet = null;
 
-    private static String url = "jdbc:mysql://localhost:3306/dictionary";
+    private static String url = "jdbc:mysql://localhost:3307/dictionary";
     private static String user = "root";
-    private static String password = "123456789";
+    private static String password = "123456";
 
     public Database() throws SQLException {
         connect();
@@ -22,7 +22,7 @@ public class Database {
         }
     }
 
-    private void connect() throws SQLException {
+    private static void connect() throws SQLException {
         connection = DriverManager.getConnection(url, user, password);
     }
 
@@ -52,7 +52,7 @@ public class Database {
         return wordList;
     }
 
-    public String getDefinition(String word) throws SQLException {
+    public static String getDefinition(String word) throws SQLException {
         connect();
 
         String query = "SELECT DEFINITION FROM DICTIONARY.DICTIONARY WHERE TARGET = ?";

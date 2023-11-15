@@ -24,7 +24,7 @@ public class Database {
         }
     }
 
-    private void connect() throws SQLException {
+    private static void connect() throws SQLException {
         connection = DriverManager.getConnection(url, user, password);
     }
 
@@ -53,7 +53,7 @@ public class Database {
         return list;
     }
 
-    public String getDefinition(String word) throws SQLException {
+    public static String getDefinition(String word) throws SQLException {
         connect();
 
         String query = "SELECT DEFINITION FROM DICTIONARY.DICTIONARY WHERE TARGET = ?";

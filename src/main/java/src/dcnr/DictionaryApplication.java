@@ -19,7 +19,7 @@ public class DictionaryApplication extends Application {
             Image favicon = new Image("file:src/main/resources/src/images/logo.png");
             stage.getIcons().add(favicon);
             stage.setTitle("Oxford Dictionary");
-            stage.setResizable(false); // Make the app's size cannot change
+//            stage.setResizable(false); // Make the app's size cannot change
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

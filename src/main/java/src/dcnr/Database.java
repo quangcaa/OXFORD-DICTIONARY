@@ -10,9 +10,9 @@ public class Database {
     private static PreparedStatement preparedStatement = null;
     private static ResultSet resultSet = null;
 
-    private static String url = "jdbc:mysql://localhost:3307/dictionary";
+    private static String url = "jdbc:mysql://localhost:3306/dictionary";
     private static String user = "root";
-    private static String password = "123456";
+    private static String password = "123456789";
 
     public Database() throws SQLException {
         connect();

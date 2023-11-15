@@ -15,10 +15,11 @@ public class DictionaryApplication extends Application {
     public void start(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("mainScene.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 900, 770);
+            Scene scene = new Scene(fxmlLoader.load(), 920, 770);
             Image favicon = new Image("file:src/main/resources/src/images/logo.png");
             stage.getIcons().add(favicon);
             stage.setTitle("Oxford Dictionary");
+            stage.setResizable(false); // Make the app's size cannot change
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

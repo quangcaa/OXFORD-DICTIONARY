@@ -21,7 +21,7 @@ public class mainSceneController implements Initializable
             } else if (newTab == tabTranslate) {
                 // Xử lý khi chuyển đến tab Translate
                 System.out.println("Chuyển đến tab Translate");
-            } else if (newTab == tabGame) {
+            } else if (newTab == tabQuiz) {
                 // Xử lý khi chuyển đến tab Game
                 System.out.println("Chuyển đến tab Game");
             } else if (newTab == tabSetting) {
@@ -38,7 +38,7 @@ public class mainSceneController implements Initializable
     private Tab tabTranslate ;
 
     @FXML
-    private Tab tabGame ;
+    private Tab tabQuiz ;
 
     @FXML
     private Tab tabSetting ;

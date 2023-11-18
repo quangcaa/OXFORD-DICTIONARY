@@ -4,16 +4,11 @@ import javafx.animation.KeyFrame;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
 import javafx.animation.Timeline;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.BufferedReader;
@@ -48,6 +43,8 @@ public class quizController {
     private Button bC;
     @FXML
     private Button bD;
+    @FXML
+    private Button playB;
     String[] questions = new String[100];
     String[] optsA = new String[100];
     String[] optsB = new String[100];
@@ -64,21 +61,11 @@ public class quizController {
     Timeline timer;
 
     public void initialize() throws IOException {
-        this.timer = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                seconds--;
-                seconds_left.setText(String.valueOf(seconds));
-                if (seconds <= 0) {
-                    displayAnswer();
-                }
-            }
-        }));
-
-        this.timer.setCycleCount(Timeline.INDEFINITE);
-
+        bA.setDisable(true);
+        bB.setDisable(true);
+        bC.setDisable(true);
+        bD.setDisable(true);
         loadData();
-        loadQuestion();
     }
 
     public void loadData() throws IOException {
@@ -170,7 +157,9 @@ public class quizController {
         if (correct_ans == 5) comment.setText("EXCELLENT!!");
         correctGuess.setVisible(true);
         comment.setVisible(true);
-
+        index = 0;
+        playB.setVisible(true);
+        playB.setText("TRY AGAIN");
     }
     boolean checkAnswer(String answer) {
         return Objects.equals(answer, ans[index]);
@@ -208,11 +197,26 @@ public class quizController {
         displayAnswer();
     }
 
-    public void switchBack(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("game.fxml"));
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void startGame(ActionEvent e) {
+        this.timer = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                seconds--;
+                seconds_left.setText(String.valueOf(seconds));
+                if (seconds <= 0) {
+                    displayAnswer();
+                }
+            }
+        }));
+
+        this.timer.setCycleCount(Timeline.INDEFINITE);
+        loadQuestion();
+        playB.setVisible(false);
+        correctGuess.setVisible(false);
+        comment.setVisible(false);
+        bA.setDisable(false);
+        bB.setDisable(false);
+        bC.setDisable(false);
+        bD.setDisable(false);
     }
 }

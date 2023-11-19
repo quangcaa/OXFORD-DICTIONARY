@@ -12,9 +12,9 @@
             <Font name="Ink Free" size="73.0" />
          </font>
       </Label>
-      <Label fx:id="question" alignment="CENTER" layoutX="-1.0" layoutY="110.0" prefHeight="130.0" prefWidth="917.0" text="Welcome">
+      <Label fx:id="question" alignment="CENTER" layoutX="-1.0" layoutY="110.0" prefHeight="130.0" prefWidth="917.0" text="WELCOME">
          <font>
-            <Font size="40.0" />
+            <Font size="24.0" />
          </font>
       </Label>
       <Button fx:id="bA" layoutX="1.0" layoutY="240.0" mnemonicParsing="false" onAction="#opt1clicked" prefHeight="110.0" prefWidth="110.0" text="A">

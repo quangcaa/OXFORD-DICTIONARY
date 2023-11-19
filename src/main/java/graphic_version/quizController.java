@@ -17,6 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
+import java.util.Random;
 
 public class quizController {
     @FXML
@@ -54,7 +55,7 @@ public class quizController {
     int size = 0;
 
     String guess;
-    int index = 0;
+    int index, a;
     int seconds = 10;
     int correct_ans = 0;
 
@@ -93,7 +94,7 @@ public class quizController {
     }
 
     public void loadQuestion() {
-        if(index >= 4) {
+        if(index >= a + 4) {
             result();
         }
         else {
@@ -157,7 +158,6 @@ public class quizController {
         if (correct_ans == 5) comment.setText("EXCELLENT!!");
         correctGuess.setVisible(true);
         comment.setVisible(true);
-        index = 0;
         playB.setVisible(true);
         playB.setText("TRY AGAIN");
     }
@@ -174,7 +174,7 @@ public class quizController {
     }
 
     public void opt2clicked(ActionEvent e) {
-        guess = "A";
+        guess = "B";
         if (checkAnswer(guess)) {
             correct_ans++;
         }
@@ -198,6 +198,9 @@ public class quizController {
     }
 
     public void startGame(ActionEvent e) {
+        int r = new Random().nextInt(size-4);
+        index = r;
+        a = index;
         this.timer = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -218,5 +221,6 @@ public class quizController {
         bB.setDisable(false);
         bC.setDisable(false);
         bD.setDisable(false);
+        correct_ans = 0;
     }
 }

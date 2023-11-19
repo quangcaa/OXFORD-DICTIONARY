@@ -105,6 +105,17 @@ public class hangmanController extends hangmanMenuController {
     public void initialize() throws IOException {
         super.readData();
         setDis();
+        w11.setVisible(false);
+        w10.setVisible(false);
+        w9.setVisible(false);
+        w8.setVisible(false);
+        w7.setVisible(false);
+        w6.setVisible(false);
+        w5.setVisible(false);
+        w4.setVisible(false);
+        w3.setVisible(false);
+        w2.setVisible(false);
+        w1.setVisible(false);
     }
 
     public int randomW() {

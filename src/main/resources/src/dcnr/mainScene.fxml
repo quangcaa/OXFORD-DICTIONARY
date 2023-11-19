@@ -23,9 +23,9 @@
                         <fx:include source="quiz.fxml" />
                     </content>
                 </Tab>
-                <Tab fx:id="tabSetting" text="Setting">
+                <Tab fx:id="tabHM" text="HangMan">
                     <content>
-                        <fx:include source="setting.fxml" />
+                        <fx:include source="hangman.fxml" />
                     </content>
                 </Tab>
             </tabs>

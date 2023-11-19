@@ -105,17 +105,6 @@ public class hangmanController extends hangmanMenuController {
     public void initialize() throws IOException {
         super.readData();
         setDis();
-        w11.setVisible(false);
-        w10.setVisible(false);
-        w9.setVisible(false);
-        w8.setVisible(false);
-        w7.setVisible(false);
-        w6.setVisible(false);
-        w5.setVisible(false);
-        w4.setVisible(false);
-        w3.setVisible(false);
-        w2.setVisible(false);
-        w1.setVisible(false);
     }
 
     public int randomW() {
@@ -124,6 +113,7 @@ public class hangmanController extends hangmanMenuController {
     }
     public void setup() {
         iv.setImage(img1);
+        centre.setText("Hang Man");
         w11.setText("_");
         w10.setText("_");
         w9.setText("_");
@@ -329,108 +319,108 @@ public class hangmanController extends hangmanMenuController {
     }
 
     public void clicked1(ActionEvent e) {
-        checkAnswer("a");
         b1.setVisible(false);
+        checkAnswer("a");
     }
     public void clicked2(ActionEvent e) {
-        checkAnswer("b");
         b2.setVisible(false);
+        checkAnswer("b");
     }
     public void clicked3(ActionEvent e) {
-        checkAnswer("c");
         b3.setVisible(false);
+        checkAnswer("c");
     }
     public void clicked4(ActionEvent e) {
-        checkAnswer("d");
         b4.setVisible(false);
+        checkAnswer("d");
     }
     public void clicked5(ActionEvent e) {
-        checkAnswer("e");
         b5.setVisible(false);
+        checkAnswer("e");
     }
     public void clicked6(ActionEvent e) {
-        checkAnswer("f");
         b6.setVisible(false);
+        checkAnswer("f");
     }
     public void clicked7(ActionEvent e) {
-        checkAnswer("g");
         b7.setVisible(false);
+        checkAnswer("g");
     }
     public void clicked8(ActionEvent e) {
-        checkAnswer("h");
         b8.setVisible(false);
+        checkAnswer("h");
     }
     public void clicked9(ActionEvent e) {
-        checkAnswer("i");
         b9.setVisible(false);
+        checkAnswer("i");
     }
     public void clicked10(ActionEvent e) {
-        checkAnswer("j");
         b10.setVisible(false);
+        checkAnswer("j");
     }
     public void clicked11(ActionEvent e) {
-        checkAnswer("k");
         b11.setVisible(false);
+        checkAnswer("k");
     }
     public void clicked12(ActionEvent e) {
-        checkAnswer("l");
         b12.setVisible(false);
+        checkAnswer("l");
     }
     public void clicked13(ActionEvent e) {
-        checkAnswer("m");
         b13.setVisible(false);
+        checkAnswer("m");
     }
     public void clicked14(ActionEvent e) {
-        checkAnswer("n");
         b14.setVisible(false);
+        checkAnswer("n");
     }
     public void clicked15(ActionEvent e) {
-        checkAnswer("o");
         b15.setVisible(false);
+        checkAnswer("o");
     }
     public void clicked16(ActionEvent e) {
-        checkAnswer("p");
         b16.setVisible(false);
+        checkAnswer("p");
     }
     public void clicked17(ActionEvent e) {
-        checkAnswer("q");
         b17.setVisible(false);
+        checkAnswer("q");
     }
     public void clicked18(ActionEvent e) {
-        checkAnswer("r");
         b18.setVisible(false);
+        checkAnswer("r");
     }
     public void clicked19(ActionEvent e) {
-        checkAnswer("s");
         b19.setVisible(false);
+        checkAnswer("s");
     }
     public void clicked20(ActionEvent e) {
-        checkAnswer("t");
         b20.setVisible(false);
+        checkAnswer("t");
     }
     public void clicked21(ActionEvent e) {
-        checkAnswer("y");
         b21.setVisible(false);
+        checkAnswer("y");
     }
     public void clicked22(ActionEvent e) {
-        checkAnswer("x");
         b22.setVisible(false);
+        checkAnswer("x");
     }
     public void clicked23(ActionEvent e) {
-        checkAnswer("u");
         b23.setVisible(false);
+        checkAnswer("u");
     }
     public void clicked24(ActionEvent e) {
-        checkAnswer("v");
         b24.setVisible(false);
+        checkAnswer("v");
     }
     public void clicked25(ActionEvent e) {
-        checkAnswer("w");
         b25.setVisible(false);
+        checkAnswer("w");
     }
     public void clicked26(ActionEvent e) {
-        checkAnswer("z");
         b26.setVisible(false);
+        checkAnswer("z");
     }
 
     public void setDis() {

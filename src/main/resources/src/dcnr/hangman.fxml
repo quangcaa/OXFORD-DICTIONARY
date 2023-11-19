@@ -14,59 +14,59 @@
                 <Image url="@../images/img1.png" />
             </image>
         </ImageView>
-        <Label fx:id="w3" alignment="CENTER" layoutX="369.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w3" alignment="CENTER" layoutX="369.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w2" alignment="CENTER" layoutX="314.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w2" alignment="CENTER" layoutX="314.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w1" alignment="CENTER" layoutX="259.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w1" alignment="CENTER" layoutX="259.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w8" alignment="CENTER" layoutX="640.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w8" alignment="CENTER" layoutX="640.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w5" alignment="CENTER" layoutX="475.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w5" alignment="CENTER" layoutX="475.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w4" alignment="CENTER" layoutX="423.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w4" alignment="CENTER" layoutX="423.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w10" alignment="CENTER" layoutX="750.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w10" alignment="CENTER" layoutX="750.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w6" alignment="CENTER" layoutX="530.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w6" alignment="CENTER" layoutX="530.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w11" alignment="CENTER" layoutX="805.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w11" alignment="CENTER" layoutX="805.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w7" alignment="CENTER" layoutX="585.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w7" alignment="CENTER" layoutX="585.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="w9" alignment="CENTER" layoutX="695.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_">
+        <Label fx:id="w9" alignment="CENTER" layoutX="695.0" layoutY="300.0" prefHeight="70.0" prefWidth="55.0" text="_" visible="false">
             <font>
-                <Font size="64.0" />
+                <Font size="60.0" />
             </font>
         </Label>
         <Label fx:id="centre" layoutX="423.0" layoutY="89.0" text="GUESS WORD">

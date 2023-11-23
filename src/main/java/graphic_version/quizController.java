@@ -94,10 +94,9 @@ public class quizController {
     }
 
     public void loadQuestion() {
-        if(index >= a + 4) {
+        if (index >= a + 4) {
             result();
-        }
-        else {
+        } else {
             question.setText(questions[index]);
             optA.setText(optsA[index]);
             optB.setText(optsB[index]);
@@ -161,6 +160,7 @@ public class quizController {
         playB.setVisible(true);
         playB.setText("TRY AGAIN");
     }
+
     boolean checkAnswer(String answer) {
         return Objects.equals(answer, ans[index]);
     }
@@ -198,7 +198,7 @@ public class quizController {
     }
 
     public void startGame(ActionEvent e) {
-        int r = new Random().nextInt(size-4);
+        int r = new Random().nextInt(size - 4);
         index = r;
         a = index;
         this.timer = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {

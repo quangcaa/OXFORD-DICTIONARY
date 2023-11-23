@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic_version.hangmanController">
+<AnchorPane prefHeight="750.0" prefWidth="900.0" style="-fx-background-color: #B2BEB5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic_version.hangmanController">
     <children>
         <ImageView fx:id="iv" fitHeight="300.0" fitWidth="261.0" layoutX="32.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -69,9 +69,9 @@
                 <Font size="60.0" />
             </font>
         </Label>
-        <Label fx:id="centre" layoutX="423.0" layoutY="89.0" text="GUESS WORD">
+        <Label fx:id="centre" layoutX="423.0" layoutY="89.0" text="GUESS WORD" textFill="#030303">
             <font>
-                <Font name="System Bold" size="56.0" />
+                <Font name="Arial Bold" size="56.0" />
             </font>
         </Label>
         <Button fx:id="b1" layoutX="51.0" layoutY="374.0" mnemonicParsing="false" onAction="#clicked1" prefHeight="42.0" prefWidth="42.0" text="A">
@@ -199,9 +199,9 @@
                 <Font size="20.0" />
             </font>
         </Button>
-        <Button fx:id="sb" layoutX="347.0" layoutY="578.0" mnemonicParsing="false" onAction="#start" prefHeight="77.0" prefWidth="275.0" text="PLAY">
+        <Button fx:id="sb" layoutX="347.0" layoutY="578.0" mnemonicParsing="false" onAction="#start" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #f1c40f;" text="PLAY">
             <font>
-                <Font name="Ink Free" size="35.0" />
+                <Font name="MS UI Gothic" size="35.0" />
             </font>
         </Button>
         <Button fx:id="b22" layoutX="729.0" layoutY="465.0" mnemonicParsing="false" onAction="#clicked22" prefHeight="42.0" prefWidth="42.0" text="X">

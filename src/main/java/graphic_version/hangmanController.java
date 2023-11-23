@@ -21,81 +21,13 @@ public class hangmanController extends hangmanMenuController {
     Image img6 = new Image("file:src/main/resources/src/images/img6.png");
     Image img7 = new Image("file:src/main/resources/src/images/img7.png");
     @FXML
-    private Label w1;
-    @FXML
-    private Label w2;
-    @FXML
-    private Label w3;
-    @FXML
-    private Label w4;
-    @FXML
-    private Label w5;
-    @FXML
-    private Label w6;
-    @FXML
-    private Label w7;
-    @FXML
-    private Label w8;
-    @FXML
-    private Label w9;
-    @FXML
-    private Label w10;
-    @FXML
-    private Label w11;
+    private Label w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11;
     @FXML
     private Label centre;
     @FXML
-    private Button b1;
-    @FXML
-    private Button b2;
-    @FXML
-    private Button b3;
-    @FXML
-    private Button b4;
-    @FXML
-    private Button b5;
-    @FXML
-    private Button b6;
-    @FXML
-    private Button b7;
-    @FXML
-    private Button b8;
-    @FXML
-    private Button b9;
-    @FXML
-    private Button b10;
-    @FXML
-    private Button b11;
-    @FXML
-    private Button b12;
-    @FXML
-    private Button b13;
-    @FXML
-    private Button b14;
-    @FXML
-    private Button b15;
-    @FXML
-    private Button b16;
-    @FXML
-    private Button b17;
-    @FXML
-    private Button b18;
-    @FXML
-    private Button b19;
-    @FXML
-    private Button b20;
-    @FXML
-    private Button b21;
-    @FXML
-    private Button b22;
-    @FXML
-    private Button b23;
-    @FXML
-    private Button b24;
-    @FXML
-    private Button b25;
-    @FXML
-    private Button b26;
+    private Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b10,
+                b11, b12, b13, b14, b15, b16, b17, b18, b19,
+                b20, b21, b22, b23, b24, b25, b26;
     @FXML
     private Button sb;
     String word;
@@ -112,30 +44,6 @@ public class hangmanController extends hangmanMenuController {
         return r.nextInt(words.size());
     }
     public void setup() {
-        iv.setImage(img1);
-        centre.setText("Hang Man");
-        w11.setText("_");
-        w10.setText("_");
-        w9.setText("_");
-        w8.setText("_");
-        w7.setText("_");
-        w6.setText("_");
-        w5.setText("_");
-        w4.setText("_");
-        w3.setText("_");
-        w2.setText("_");
-        w1.setText("_");
-        w11.setVisible(false);
-        w10.setVisible(false);
-        w9.setVisible(false);
-        w8.setVisible(false);
-        w7.setVisible(false);
-        w6.setVisible(false);
-        w5.setVisible(false);
-        w4.setVisible(false);
-        w3.setVisible(false);
-        w2.setVisible(false);
-        w1.setVisible(false);
         setVi();
         correct_ans = 0;
         life = 6;
@@ -144,14 +52,24 @@ public class hangmanController extends hangmanMenuController {
         int r = randomW();
         word = words.get(r);
         sizee = word.length();
+        iv.setImage(img1);
         sb.setVisible(false);
         setNotDis();
+        centre.setText("Guess Word");
         switch (sizee) {
             case 4:
                 w1.setVisible(true);
                 w2.setVisible(true);
                 w3.setVisible(true);
                 w4.setVisible(true);
+                w5.setVisible(false);
+                w6.setVisible(false);
+                w7.setVisible(false);
+                w8.setVisible(false);
+                w9.setVisible(false);
+                w10.setVisible(false);
+                w11.setVisible(false);
+                setT();
                 break;
             case 5:
                 w1.setVisible(true);
@@ -159,6 +77,13 @@ public class hangmanController extends hangmanMenuController {
                 w3.setVisible(true);
                 w4.setVisible(true);
                 w5.setVisible(true);
+                w6.setVisible(false);
+                w7.setVisible(false);
+                w8.setVisible(false);
+                w9.setVisible(false);
+                w10.setVisible(false);
+                w11.setVisible(false);
+                setT();
                 break;
             case 6:
                 w1.setVisible(true);
@@ -167,6 +92,12 @@ public class hangmanController extends hangmanMenuController {
                 w4.setVisible(true);
                 w5.setVisible(true);
                 w6.setVisible(true);
+                w7.setVisible(false);
+                w8.setVisible(false);
+                w9.setVisible(false);
+                w10.setVisible(false);
+                w11.setVisible(false);
+                setT();
                 break;
             case 7:
                 w1.setVisible(true);
@@ -176,6 +107,11 @@ public class hangmanController extends hangmanMenuController {
                 w5.setVisible(true);
                 w6.setVisible(true);
                 w7.setVisible(true);
+                w8.setVisible(false);
+                w9.setVisible(false);
+                w10.setVisible(false);
+                w11.setVisible(false);
+                setT();
                 break;
             case 8:
                 w1.setVisible(true);
@@ -186,6 +122,10 @@ public class hangmanController extends hangmanMenuController {
                 w6.setVisible(true);
                 w7.setVisible(true);
                 w8.setVisible(true);
+                w9.setVisible(false);
+                w10.setVisible(false);
+                w11.setVisible(false);
+                setT();
                 break;
             case 9:
                 w1.setVisible(true);
@@ -197,6 +137,9 @@ public class hangmanController extends hangmanMenuController {
                 w7.setVisible(true);
                 w8.setVisible(true);
                 w9.setVisible(true);
+                w10.setVisible(false);
+                w11.setVisible(false);
+                setT();
                 break;
             case 10:
                 w1.setVisible(true);
@@ -209,6 +152,8 @@ public class hangmanController extends hangmanMenuController {
                 w8.setVisible(true);
                 w9.setVisible(true);
                 w10.setVisible(true);
+                w11.setVisible(false);
+                setT();
                 break;
             case 11:
                 w1.setVisible(true);
@@ -222,6 +167,7 @@ public class hangmanController extends hangmanMenuController {
                 w9.setVisible(true);
                 w10.setVisible(true);
                 w11.setVisible(true);
+                setT();
                 break;
             default:
                 break;
@@ -312,6 +258,12 @@ public class hangmanController extends hangmanMenuController {
                 centre.setText("GAME OVER!!");
                 setDis();
                 setup();
+                int index = 0;
+                for (int i = 0; i < word.length(); i++) {
+                    char c = word.charAt(i);
+                    showAnswer(index, Character.toString(c));
+                    index++;
+                }
                 sb.setVisible(true);
                 sb.setText("TRY AGAIN");
                 break;
@@ -510,5 +462,18 @@ public class hangmanController extends hangmanMenuController {
         b26.setVisible(true);
     }
 
+    public void setT() {
+        w11.setText("_");
+        w10.setText("_");
+        w9.setText("_");
+        w8.setText("_");
+        w7.setText("_");
+        w6.setText("_");
+        w5.setText("_");
+        w4.setText("_");
+        w3.setText("_");
+        w2.setText("_");
+        w1.setText("_");
+    }
 
 }

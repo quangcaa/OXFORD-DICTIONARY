@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.Random;
 
-public class hangmanController extends hangmanMenuController {
+public class hangmanController extends hangmanData {
     @FXML
     private ImageView iv;
     Image img1 = new Image("file:src/main/resources/src/images/img1.png");

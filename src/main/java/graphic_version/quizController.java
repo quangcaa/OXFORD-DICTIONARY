@@ -110,9 +110,13 @@ public class quizController {
     public void displayAnswer() {
         timer.stop();
         if (!Objects.equals(ans[index], "A")) optA.setTextFill(Color.RED);
+        else optA.setTextFill(Color.GREEN);
         if (!Objects.equals(ans[index], "B")) optB.setTextFill(Color.RED);
+        else optB.setTextFill(Color.GREEN);
         if (!Objects.equals(ans[index], "C")) optC.setTextFill(Color.RED);
+        else optC.setTextFill(Color.GREEN);
         if (!Objects.equals(ans[index], "D")) optD.setTextFill(Color.RED);
+        else optD.setTextFill(Color.GREEN);
         bA.setDisable(true);
         bB.setDisable(true);
         bC.setDisable(true);

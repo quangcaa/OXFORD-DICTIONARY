@@ -6,7 +6,7 @@ import java.io.IOException ;
 import java.util.List ;
 import java.util.Scanner ;
 
-public class DictionaryManagement
+public class DictionaryManagement extends Dictionary
 {
     public static void insertFromCommandline ()
     {
@@ -22,7 +22,7 @@ public class DictionaryManagement
 
             Word ip = new Word(ip_word_target , ip_word_explain) ;
 
-            Dictionary.dic.addd(ip) ;
+            dic.addd(ip) ;
         }
 
         sc.close(); ;
@@ -31,9 +31,9 @@ public class DictionaryManagement
     // tra cuu tu
     public static void dictionaryLookup (String search)
     {
-        if((Dictionary.dic.findWord(search)) != null)
+        if((dic.findWord(search)) != null)
         {
-            System.out.println("Meaning : " + Dictionary.dic.findWord(search).getWord_explain()) ;
+            System.out.println("Meaning : " + dic.findWord(search).getWord_explain()) ;
         }
         else
         {
@@ -45,7 +45,7 @@ public class DictionaryManagement
     public static void dictionarySearch (String x)
     {
         // check if wrong
-        List<Word> pr = Dictionary.dic.searchWord(x) ;
+        List<Word> pr = dic.searchWord(x) ;
 
         for(int i=0 ; i<pr.size() ; i++)
         {
@@ -55,34 +55,33 @@ public class DictionaryManagement
 
     public static void insertFromFile () throws IOException
     {
-        Dictionary.dic.importF();
+        dic.importF();
     }
 
     // xuat tu ra file
     public static void dictionaryExportToFile () throws IOException
     {
-        Dictionary.dic.exportF() ;
+        dic.exportF() ;
     }
 
 
     // them du lieu tu vung
     public static void add_Word (Word x)
     {
-        Dictionary.dic.addd(x) ;
+        dic.addd(x) ;
     }
-
 
     // sua du lieu tu vung
     public static void fix_Word (String tg , String ep)
     {
-        Dictionary.dic.fix(tg , ep) ;
+        dic.fix(tg , ep) ;
     }
 
 
     // xoa du lieu tu vung
     public static void remove_Word (String x)
     {
-        Dictionary.dic.remove(x) ;
+        dic.remove(x) ;
     }
 
 }

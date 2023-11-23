@@ -4,18 +4,18 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class DictionaryCommandline {
+public class DictionaryCommandline extends DictionaryManagement{
     public static void showAllWords() {
         Dictionary.dic.showWord();
     }
 
-    public static void dictionaryBasic() {
-        DictionaryManagement.insertFromCommandline();
+    public void dictionaryBasic() {
+        insertFromCommandline();
         showAllWords();
     }
 
     public static void dictionaryBasic2() throws IOException {
-        DictionaryManagement.insertFromFile();
+        insertFromFile();
         showAllWords();
     }
 
@@ -53,13 +53,13 @@ public class DictionaryCommandline {
                 System.out.println("Meaning :");
                 String we = sc.nextLine();
 
-                DictionaryManagement.add_Word(new Word(wt, we));
+                add_Word(new Word(wt, we));
             } else if (sl == 2) // Remove
             {
                 System.out.println("Word you want to remove :");
                 String rm = sc.nextLine();
 
-                DictionaryManagement.remove_Word(rm);
+                remove_Word(rm);
             } else if (sl == 3) // Update
             {
                 System.out.println("Word you want to fix :");
@@ -68,24 +68,26 @@ public class DictionaryCommandline {
                 System.out.println("Edit meaning to :");
                 String ep = sc.nextLine();
 
-                DictionaryManagement.fix_Word(tg, ep);
+                fix_Word(tg, ep);
             } else if (sl == 4) {
                 showAllWords();
             } else if (sl == 5) {
                 System.out.println("Lookup : ");
                 String search = sc.nextLine().trim().toLowerCase();
 
-                DictionaryManagement.dictionaryLookup(search);
+                dictionaryLookup(search);
             } else if (sl == 6) {
                 System.out.println("Search : ");
                 String sr = sc.nextLine();
 
                 System.out.println("Result : ");
-                DictionaryManagement.dictionarySearch(sr);
-            } else if (sl == 8) {
-                DictionaryManagement.insertFromFile();
+                dictionarySearch(sr);
+            } else if (sl == 7) {
+                Game.game.play();
+            }else if (sl == 8) {
+                insertFromFile();
             } else if (sl == 9) {
-                DictionaryManagement.dictionaryExportToFile();
+                dictionaryExportToFile();
             } else {
                 System.out.println("Action not supported");
             }

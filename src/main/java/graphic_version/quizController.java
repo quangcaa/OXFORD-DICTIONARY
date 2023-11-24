@@ -4,6 +4,7 @@ import javafx.animation.KeyFrame;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -15,11 +16,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class quizController {
+public class quizController implements Initializable {
     @FXML
     private Label question;
     @FXML
@@ -61,12 +64,16 @@ public class quizController {
 
     Timeline timer;
 
-    public void initialize() throws IOException {
+    public void initialize(URL location, ResourceBundle resources) {
         bA.setDisable(true);
         bB.setDisable(true);
         bC.setDisable(true);
         bD.setDisable(true);
-        loadData();
+        try {
+            loadData();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void loadData() throws IOException {

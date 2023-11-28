@@ -161,7 +161,7 @@ public class dictionaryController implements Initializable {
         if (!checkValid(newWord.getKey())) {
             message.warning("Warning", "", "Words contain characters that are not allowed.");
             System.out.println("Words contain characters that are not allowed.");
-            return ;
+            return;
         }
 
         if (!newWord.getKey().equals("") && !newWord.getValue().equals("")) {
@@ -195,7 +195,7 @@ public class dictionaryController implements Initializable {
             if (!checkValid(newWord.getKey())) {
                 message.warning("Warning", "", "Words contain characters that are not allowed.");
                 System.out.println("Words contain characters that are not allowed.");
-                return ;
+                return;
             }
 
             if (!newWord.getKey().equals("") && !newWord.getValue().equals("")) {

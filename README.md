@@ -2,10 +2,18 @@
 - This project is a dictionary designed to help Vietnamese people learn English. It provides a user-friendly interface for searching English words and retrieving their definitions in Vietnamese.
 
 ## Introduction
-- This is a big project of OOP (UET-VNU)
-- Made by __Straw Hat__ Team.
+- This is a project of OOP (UET-VNU)
 
 ## About
+- English-Vietnamese Dictionary
+<br> ![dictionary]()
+- Paragraph Translate
+<br> ![translate]()
+- Add/Edit/Delete feature
+<br> ![ft]()
+- Games for learning English
+<br> **Quiz** ![quiz]()
+<br> **Hang Man** ![hangman]()
 
 ## Prerequisites
 - Java Development Kit (JDK) 21 or later.

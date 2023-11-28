@@ -2,15 +2,18 @@ package graphic_version;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class hangmanController extends hangmanData {
+public class hangmanController extends hangmanData implements Initializable {
     @FXML
     private ImageView iv;
     Image img1 = new Image("file:src/main/resources/src/images/img1.png");
@@ -26,16 +29,21 @@ public class hangmanController extends hangmanData {
     private Label centre;
     @FXML
     private Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b10,
-                b11, b12, b13, b14, b15, b16, b17, b18, b19,
-                b20, b21, b22, b23, b24, b25, b26;
+            b11, b12, b13, b14, b15, b16, b17, b18, b19,
+            b20, b21, b22, b23, b24, b25, b26;
     @FXML
     private Button sb;
     String word;
     int sizee;
     int life = 6;
 
-    public void initialize() throws IOException {
-        super.readData();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            super.readData();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         setDis();
     }
 
@@ -43,11 +51,13 @@ public class hangmanController extends hangmanData {
         Random r = new Random();
         return r.nextInt(words.size());
     }
+
     public void setup() {
         setVi();
         correct_ans = 0;
         life = 6;
     }
+
     public void start() {
         int r = randomW();
         word = words.get(r);
@@ -173,7 +183,9 @@ public class hangmanController extends hangmanData {
                 break;
         }
     }
+
     int correct_ans = 0;
+
     public void checkAnswer(String str) {
         if (word.contains(str)) {
             int index = 0;
@@ -185,8 +197,7 @@ public class hangmanController extends hangmanData {
                 }
                 index++;
             }
-        }
-        else showImage();
+        } else showImage();
 
         if (correct_ans == word.length()) {
             centre.setText("YOU WON!!");
@@ -274,102 +285,127 @@ public class hangmanController extends hangmanData {
         b1.setVisible(false);
         checkAnswer("a");
     }
+
     public void clicked2(ActionEvent e) {
         b2.setVisible(false);
         checkAnswer("b");
     }
+
     public void clicked3(ActionEvent e) {
         b3.setVisible(false);
         checkAnswer("c");
     }
+
     public void clicked4(ActionEvent e) {
         b4.setVisible(false);
         checkAnswer("d");
     }
+
     public void clicked5(ActionEvent e) {
         b5.setVisible(false);
         checkAnswer("e");
     }
+
     public void clicked6(ActionEvent e) {
         b6.setVisible(false);
         checkAnswer("f");
     }
+
     public void clicked7(ActionEvent e) {
         b7.setVisible(false);
         checkAnswer("g");
     }
+
     public void clicked8(ActionEvent e) {
         b8.setVisible(false);
         checkAnswer("h");
     }
+
     public void clicked9(ActionEvent e) {
         b9.setVisible(false);
         checkAnswer("i");
     }
+
     public void clicked10(ActionEvent e) {
         b10.setVisible(false);
         checkAnswer("j");
     }
+
     public void clicked11(ActionEvent e) {
         b11.setVisible(false);
         checkAnswer("k");
     }
+
     public void clicked12(ActionEvent e) {
         b12.setVisible(false);
         checkAnswer("l");
     }
+
     public void clicked13(ActionEvent e) {
         b13.setVisible(false);
         checkAnswer("m");
     }
+
     public void clicked14(ActionEvent e) {
         b14.setVisible(false);
         checkAnswer("n");
     }
+
     public void clicked15(ActionEvent e) {
         b15.setVisible(false);
         checkAnswer("o");
     }
+
     public void clicked16(ActionEvent e) {
         b16.setVisible(false);
         checkAnswer("p");
     }
+
     public void clicked17(ActionEvent e) {
         b17.setVisible(false);
         checkAnswer("q");
     }
+
     public void clicked18(ActionEvent e) {
         b18.setVisible(false);
         checkAnswer("r");
     }
+
     public void clicked19(ActionEvent e) {
         b19.setVisible(false);
         checkAnswer("s");
     }
+
     public void clicked20(ActionEvent e) {
         b20.setVisible(false);
         checkAnswer("t");
     }
+
     public void clicked21(ActionEvent e) {
         b21.setVisible(false);
         checkAnswer("y");
     }
+
     public void clicked22(ActionEvent e) {
         b22.setVisible(false);
         checkAnswer("x");
     }
+
     public void clicked23(ActionEvent e) {
         b23.setVisible(false);
         checkAnswer("u");
     }
+
     public void clicked24(ActionEvent e) {
         b24.setVisible(false);
         checkAnswer("v");
     }
+
     public void clicked25(ActionEvent e) {
         b25.setVisible(false);
         checkAnswer("w");
     }
+
     public void clicked26(ActionEvent e) {
         b26.setVisible(false);
         checkAnswer("z");
@@ -475,5 +511,4 @@ public class hangmanController extends hangmanData {
         w2.setText("_");
         w1.setText("_");
     }
-
 }

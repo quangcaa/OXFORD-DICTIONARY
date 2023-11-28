@@ -27,6 +27,7 @@ public class Game {
     public Game() throws IOException {
         readDataForGame();
     }
+
     public Game(String ques, String trueans) {
         this.ques = ques;
         this.trueans = trueans;
@@ -36,9 +37,9 @@ public class Game {
         File f = new File("src/main/java/cmd_version/wordd.txt");
         FileReader fr = new FileReader(f, StandardCharsets.UTF_8);
         BufferedReader br = new BufferedReader(fr);
-        while(true) {
+        while (true) {
             String line = br.readLine();
-            if(line == null || line.isEmpty()) break;
+            if (line == null || line.isEmpty()) break;
             String[] w = line.split("\t");
             ques = w[1].trim();
             trueans = w[0].trim();

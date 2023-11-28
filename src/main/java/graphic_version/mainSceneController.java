@@ -8,11 +8,9 @@ import javafx.scene.control.TabPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class mainSceneController implements Initializable
-{
+public class mainSceneController implements Initializable {
     @Override
-    public void initialize(URL location, ResourceBundle resources)
-    {
+    public void initialize(URL location, ResourceBundle resources) {
         tabPane.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
             if (newTab == tabDictionary) {
                 // Xử lý khi chuyển đến tab Dictionary
@@ -31,23 +29,17 @@ public class mainSceneController implements Initializable
     }
 
     @FXML
-    private Tab tabDictionary ;
+    private Tab tabDictionary;
 
     @FXML
-    private Tab tabTranslate ;
+    private Tab tabTranslate;
 
     @FXML
-    private Tab tabQuiz ;
+    private Tab tabQuiz;
 
     @FXML
-    private Tab tabHM ;
+    private Tab tabHM;
 
     @FXML
     private TabPane tabPane;
-
-
-
-
-
-
 }

@@ -101,7 +101,7 @@ public class quizController implements Initializable {
     }
 
     public void loadQuestion() {
-        if (index >= a + 4) {
+        if (index == a + 5) {
             result();
         } else {
             question.setText(questions[index]);

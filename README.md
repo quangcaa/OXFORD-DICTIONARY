@@ -4,6 +4,9 @@
 ## Introduction
 - This is a project of OOP (UET-VNU)
 
+## Inheritance Tree 
+<img src="caykethua.svg" alt="Inheritance Tree">
+
 ## About
 - English-Vietnamese Dictionary
 <br> ![dictionary](https://media.giphy.com/media/xiIbzpKdJxfq2qEqsf/giphy.gif)
